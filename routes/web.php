@@ -3,16 +3,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('home');
@@ -33,6 +23,7 @@ Route::middleware("auth")
     ->group(function () {
         Route::post('/pago', [App\Http\Controllers\IdiomasController::class, 'pago'])->name('pago');
         Route::post('/idiomas/comprar',  [App\Http\Controllers\IdiomasController::class, 'comprar'])->name('idiomas.comprar');
-
+        Route::get('/my-curso', [\App\Http\Controllers\CursosController::class, 'getCursosByUser'])->name('my-curso');
+        Route::get('/curso-clases/{id}', [\App\Http\Controllers\CursosController::class, 'getCursoById'])->name('curso-clases');
         Route::get('/correo', [App\Http\Controllers\IdiomasController::class, 'correo'])->name('correo');
     });

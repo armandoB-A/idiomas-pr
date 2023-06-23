@@ -34,7 +34,10 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item"><a class="nav-link" href="{{ route('inicio') }}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('cursos') }}">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('cursos') }}">Tomar cursos</a></li>
+                    @auth()
+                        <li class="nav-item"><a class="nav-link" href="{{ route('my-curso') }}">Ver cursos en los que estoy</a></li>
+                    @endauth
                     <li class="nav-item"><a class="nav-link" href="{{ route('conocenos') }}">Conocenos</a></li>
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->

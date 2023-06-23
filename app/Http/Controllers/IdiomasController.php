@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Correro;
+use App\Models\EstudiantesCurso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -13,19 +14,31 @@ class IdiomasController extends Controller
     {
         $idiomasSeleccionados = $request->input('idiomas');
 
-        return view('pago',['idiomas'=>$idiomasSeleccionados]);
+        foreach ($idiomasSeleccionados as $idCurso) {
+            EstudiantesCurso::firstOrCreate(
+                [
+                    'id_estudiante' => Auth::id(),
+                    'id_curso' => $idCurso
+                ],
+                [
+                    'id_estudiante' => Auth::id(),
+                    'id_curso' => $idCurso
+                ]
+            );
+        }
+
+        return view('pago',['idiomas' => $idiomasSeleccionados]);
     }
     public function comprar(Request $request)
     {
         $idiomasSeleccionados = $request->input('idiomas');
-        /*$correoFactura = new Correro('GRACIAS POR SU COMPRA', $idiomasSeleccionados);
-        Mail::to(Auth::user()->email)->send($correoFactura);*/
+
         return view('venta-e', ['idiomas'=>$idiomasSeleccionados]);
     }
     function correo() {
         $correoFactura = new Correro('GRACIAS POR SU COMPRA', "hola");
         Mail::to(Auth::user()->email)->send($correoFactura);
-        return "se envio la factura";
+        return view('correo-e');
     }
 
 }
