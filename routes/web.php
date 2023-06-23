@@ -29,4 +29,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('/idiomas/comprar',  [App\Http\Controllers\IdiomasController::class, 'comprar'])->name('idiomas.comprar');
+Route::middleware("auth")
+    ->group(function () {
+        Route::post('/pago', [App\Http\Controllers\IdiomasController::class, 'pago'])->name('pago');
+        Route::post('/idiomas/comprar',  [App\Http\Controllers\IdiomasController::class, 'comprar'])->name('idiomas.comprar');
+
+        Route::get('/correo', [App\Http\Controllers\IdiomasController::class, 'correo'])->name('correo');
+    });

@@ -13,12 +13,16 @@ class Correro extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $subject;
+    public $lenguajes;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($subject, $lenguajes)
     {
-        //
+        $this->subject = $subject;
+        $this->lenguajes=$lenguajes;
     }
 
     /**
@@ -26,9 +30,7 @@ class Correro extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: 'Correro',
-        );
+        return new Envelope(subject: $this->subject);
     }
 
     /**
@@ -37,7 +39,10 @@ class Correro extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'factura.factura',
+            with: [
+                'lenguajes' => $this->lenguajes,
+            ],
         );
     }
 

@@ -2,7 +2,7 @@
 
 @section('content')
     <link rel="stylesheet" href="/css/cards.css">
-    <form action="{{ route('idiomas.comprar') }}" method="post">
+    <form action="{{ route('pago') }}" method="post">
         @csrf
         <fieldset class="checkbox-group" style="padding: 100px; margin-top: -100px">
             <legend class="checkbox-group-legend">Elige el curso que desees</legend>
