@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
         type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
+    <link href="assets/css/styles.css" rel="stylesheet" />
     <script src="//code.tidio.co/zqbrb2t0jis0imwb1o2cajio1ontelvq.js" async></script>
 </head>
 <body id="page-top">
