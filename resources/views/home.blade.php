@@ -5,7 +5,7 @@
     <header class="masthead bg-primary text-white text-center" style="margin-top: -70px">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar " src="assets/img/portfolio/Imagen.png" alt="..." />
+            <img class="masthead-avatar " src="assets/img/portfolio/imagen.png" alt="..." />
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0">BIENVENIDO A FROM YOU</h1>
             <!-- Icon Divider-->
